@@ -10,16 +10,11 @@
   "theme_color": "#0f5739",
   "icons": [
     {
-      "src": "img192.png",
+      "src": "Logo Uncos.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
-    },
-    {
-      "src": "img512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
     }
+
   ]
 }

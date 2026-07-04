@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="Logo Uncos.png">
 <meta name="theme-color" content="#0f5739">
-<title>Gestionador de Mensajes</title>
+><title>Gestionador de Mensajes</title>
 
 <style>
 *{
@@ -188,20 +188,25 @@ async function copiarFormulario(formId){
         mensaje = "Hola, aquí va la información del conferenciante:\n\n";
     }else if(formId === "form-mensaje"){
         const nomPresidente = document.getElementById("nom-Presidente").value.trim();
-        mensaje = nomPresidente ? `Hola, ${nomPresidente}\n\n` : "Hola, aquí va la información de la reunión:\n\n";
+        mensaje = nomPresidente ? `Hola, ${nomPresidente}\n\n` : "Aquí va la información de la reunión:\n\n";
     }
 
-    form.querySelectorAll("input").forEach(input => {
+form.querySelectorAll("input").forEach(input => {
 
-        const label = form.querySelector(`label[for="${input.id}"]`);
+    // Si es el formulario de reunión, no volver a mostrar el presidente
+    if (formId === "form-mensaje" && input.id === "nom-Presidente") {
+        return;
+    }
 
-        if(input.value.trim() !== ""){
+    const label = form.querySelector(`label[for="${input.id}"]`);
 
-            mensaje += `${label.textContent} ${input.value.trim()}\n`;
+    if (input.value.trim() !== "") {
 
-        }
+        mensaje += `${label.textContent} ${input.value.trim()}\n`;
 
-    });
+    }
+
+});
 
     try{
 
